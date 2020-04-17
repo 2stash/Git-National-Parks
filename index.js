@@ -7,7 +7,8 @@ function displayResults(responseJson){
   for(let i = 0; i < responseJson.data.length;i++){
   
     $('#results-list').append(
-      `<li><h3>${responseJson.data[i].fullName}</li></h3>
+      `<li><h3>Result ${i+1}</li></h3>
+      <li><h3>${responseJson.data[i].fullName}</li></h3>
       <li><h3>${responseJson.data[i].description}</li></h3>
       <li><h3>${responseJson.data[i].url}</li></h3>
       <li><h3>${responseJson.data[i].addresses[1].line1}</li></h3>
@@ -44,11 +45,18 @@ function clearHTML(){
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
+    let maxResultsUserInput =0;
     const searchTerm = $('#js-search-term').val();
     const maxResults = $('#max-results').val();
-    console.log(maxResults);
+    if(maxResults !==''){
+      maxResultsUserInput = maxResults;
+    }
+    else{
+      maxResultsUserInput=10;
+      
+    }
     clearHTML();
-    gitApiCall(searchTerm,maxResults);
+    gitApiCall(searchTerm,maxResultsUserInput);
   });
 }
 
