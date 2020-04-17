@@ -11,11 +11,11 @@ function displayResults(responseJson){
       <li><h3>${responseJson.data[i].description}</li></h3>
       <li><h3>${responseJson.data[i].url}</li></h3>
       <li><h3>${responseJson.data[i].addresses[1].line1}</li></h3>
-
       <li><h3>${responseJson.data[i].addresses[1].city}</li></h3>
       <li><h3>${responseJson.data[i].addresses[1].stateCode}</li></h3>
       <li><h3>${responseJson.data[i].addresses[1].postalCode}</li></h3>
     `)}
+    $('.results').removeClass('hidden')
 };
 
 
@@ -46,6 +46,7 @@ function watchForm() {
     event.preventDefault();
     const searchTerm = $('#js-search-term').val();
     const maxResults = $('#max-results').val();
+    console.log(maxResults);
     clearHTML();
     gitApiCall(searchTerm,maxResults);
   });

@@ -7,20 +7,22 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <h2>Search for state parks by searching 2 digit state code</h2>
     <form>
-      <label for='js-search-term'>Park State</label>
-      <input id='js-search-term' type='text'>
-      <label for='max_results'>Enter Max Results</label>
-      <input id='max_results' type='number' value='10'>
-      <input type='submit'>
+      <label for='js-search-term'>State</label>
+      <input id='js-search-term' type='text' name ='js-search-term' placeholder="Enter 2 digit state code"><br><br>
+      <label for='max-results'>Enter Max Results</label>
+      <input id='max-results' type='number' name='max-results'><br><br>
+      <input type='submit' value='Submit'>
+    </form>
 
-
-      <section>
+      <section class='results hidden'>
+        <h2>Here are your search results.</h2>
         <ul id='results-list'></ul>
 
       </section>
 
-    </form>
+    
 
 
 
